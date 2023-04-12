@@ -1,22 +1,127 @@
-import React from 'react';
-import HornedBeast from './HornedBreast';
+import React, { Component } from 'react';
+// import { Container } from 'react-bootstrap';
+// import { Row } from 'react-bootstrap';
+// import { Col } from 'react-bootstrap';
+// import { Image } from 'react-bootstrap';
+import HornedBeast from './HornedBeast';
+import beastData from './data.json';
 
-function Main() {
-    return (
-        <main>
-            <h2>Main Component</h2>
-            <HornedBeast
-                title="Kudu"
-                imageUrl="https://media.istockphoto.com/id/1157123331/photo/kudu-bull.jpg?s=612x612&w=0&k=20&c=smABJLd7PNKcEWP94p9rymejsKQoSj1pNEaNDr0atGo="
-                description="The kudus are two species of antelope of the genus Tragelaphus: Lesser kudu, Tragelaphus imberbis, of eastern Africa Greater kudu, Tragelaphus strepsiceros, of eastern and southern Africa The two species look similar, though greaters are larger than lessers."
-            />
-            <HornedBeast
-                title="Bighorn Sheep"
-                imageUrl="https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQli13PjktAwhkGynwpwwZLt90xZKLGZh4BYZS3ygvld_WGy9qizn0Tb0bHRgjUxAEgrsnVNMFmDBa6laE"
-                description="The bighorn sheep is a species of sheep native to North America. It is named for its large horns. A pair of horns might weigh up to 14 kg; the sheep typically weigh up to 143 kg. Recent genetic testing indicates three distinct subspecies of Ovis canadensis, one of which is endangered: O. c. sierrae."
-            />
-        </main>
-    );
+class Main extends Component {
+    render() {
+
+        return (
+            <div>
+                <h2>Main Component</h2>
+                {beastData.map((beast, index) => (
+                    <HornedBeast 
+                        key={beast._id}
+                        title={beast.title}
+                        image_url={beast.image_url}
+                        description={beast.description}
+                    />
+                ))}
+             </div>   
+            //     <Container>
+            //         <Row>
+            //             <Col>
+            //                 <HornedBeast title={this.props.title} image_url={beastImages[0].image_url} description={this.props.description} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast title={this.props.title} image_url={beastImages[1].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast title={this.props.title} image_url={beastImages[2].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast title={this.props.title} image_url={beastImages[3].image_url} />
+            //             </Col>
+            //         </Row>
+            //         <Row>
+            //             <Col>
+            //                 <HornedBeast title={this.props.title} image_url={beastImages[4].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast title={this.props.title} image_url={beastImages[5].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[6].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[7].image_url} />
+            //             </Col>
+            //         </Row>
+            //         <Row>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[8].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[9].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[10].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[11].image_url} />
+            //             </Col>
+            //         </Row>
+            //         <Row>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[12].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[13].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[14].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[15].image_url} />
+            //             </Col>
+            //         </Row>
+            //         <Row>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[16].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[17].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[18].image_url} />
+            //             </Col>
+            //             <Col>
+            //                 <HornedBeast image_url={beastImages[19].image_url} />
+            //             </Col>
+            //         </Row>
+            //     </Container>
+
+            // </div>
+        );
+    }
 }
 
 export default Main;
+
+// class HornedBeast extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             "status": "Yay"
+//         }
+//     }
+
+//     handleClick = () => {
+//         const newStatus = this.state.status == "Nay" ? "Yay" : "Nay";
+//         this.setState({
+//             status: newStatus
+//         });
+//     }
+
+//     render() {
+//         return (
+//             <div onClick={this.handleClick}>
+//                 <Image src={this.props.image_url} alt="some horned beast" rounded flued />
+//                 <h3>{this.state.status}</h3>
+//             </div>
+//         )
+//     }
+// }
