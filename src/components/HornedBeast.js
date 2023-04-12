@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-// import { Card.Img } from 'react-bootstrap';
 
 class HornedBeast extends Component {
     render() {
