@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-// import { Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 // import { Row } from 'react-bootstrap';
 // import { Col } from 'react-bootstrap';
 // import { Image } from 'react-bootstrap';
 import HornedBeast from './HornedBeast';
-import beastData from './data.json';
+// import imageUrls from './data.json';
 
 class Main extends Component {
     render() {
 
+        const imageUrls = this.props.imageUrls;
+
         return (
-            <div>
+            <Container>
                 <h2>Main Component</h2>
-                {beastData.map((beast, index) => (
+                {imageUrls.map((beast, index) => (
                     <HornedBeast 
                         key={beast._id}
                         title={beast.title}
@@ -20,7 +22,7 @@ class Main extends Component {
                         description={beast.description}
                     />
                 ))}
-             </div>   
+             </Container>   
             //     <Container>
             //         <Row>
             //             <Col>
