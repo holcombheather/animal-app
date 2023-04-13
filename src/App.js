@@ -7,6 +7,14 @@ import imageUrls from './data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+// function 
+    };
+  }
+
   render() {
     return ( 
     <Container>
