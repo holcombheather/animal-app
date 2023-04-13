@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-// import { Image } from 'react-bootstrap';
 import HornedBeast from './HornedBeast';
-// import imageUrls from '../data.json';
 
 class Main extends Component {
    
     render() {
 
-        const imageUrls = this.props.imageUrls;
+        const { imageUrls, onBeastSelect } = this.props;
 
+        const handleClick = () => {
+            console.log('handleClick invoked');
+        };
+        
         return (
             <Container class='container-fluid'> 
                 <h2 style={{
@@ -32,6 +34,8 @@ class Main extends Component {
                             title={beast.title}
                             image_url={beast.image_url}
                             description={beast.description}
+                            onClick={() => onBeastSelect(beast)}
+                            handleClick={beast.handleClick}
                         />   
                         </Col>
                     )

@@ -19,6 +19,10 @@ class HornedBeast extends Component {
     }
 
     render() {
+        const handleCardClick = () => {
+            this.onClick();
+            this.handleClick();
+        };
 
         return (
             <Card border='info' onClick={this.handleClick} style={{
