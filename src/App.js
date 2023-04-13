@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import FilterForm from './components/FilterForm';
 import Main from './components/Main';
+import SelectedBeast from './components/SelectedBeast';
 import Footer from './components/Footer';
 import imageUrls from './data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SelectedBeast from './components/SelectedBeast';
 import './AppStyle.css';
-import { Form } from 'react-bootstrap';
-import FilterForm from './components/FilterForm';
+// import { Form } from 'react-bootstrap';
+
 
 class App extends Component {
 
@@ -36,6 +37,8 @@ class App extends Component {
 
   handleFilter = (event) => {
     //update state
+    // this.setState({
+    // })
     alert(event.target.value);
   }
 
