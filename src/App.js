@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import imageUrls from './data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SelectedBeast from './components/SelectedBeast';
-// import './App.css';
+import './AppStyle.css';
 
 class App extends Component {
 
