@@ -18,31 +18,60 @@ class HornedBeast extends Component {
         })
     }
 
+    handleCardClick = () => {
+        this.handleClick();
+        this.props.onImageClick();
+    }
+
     render() {
 
         return (
-            <Card border='info' onClick={this.handleClick} style={{
-                height: '400px',
-                color: 'darkblue',
-            }}>
+            <Card
+                onClick={this.handleCardClick}
+                border='info'
+                style={{
+                    height: '400px',
+                    color: 'darkblue',
+                }}>
+
                 <CardHeader >
-                    <HeartFill color='red'></HeartFill>
-                    <span style={{ padding: '3px', }}>{this.state.timesClicked}</span>
+                    <HeartFill
+                        color='red'>
+                    </HeartFill>
+                    <span
+                        style={{
+                            padding: '3px',
+                        }}>
+                        {this.state.timesClicked}
+                    </span>
                 </CardHeader>
-                
-                <Card.Img src={this.props.image_url} alt={this.props.title} title={this.props.title} class='card-img-top' style={{
-                    objectFit: 'contain',
-                    height: '250px',
-                    width: '100%',
-                }}/>
-               
-                <Card.Title class='card-title text-center' style={{
-                    fontWeight: 'bold',
-                    marginTop: '10px',
-                }}>{this.props.title}</Card.Title>
-               
+
+                <Card.Img
+                    src={this.props.image_url}
+                    alt={this.props.title}
+                    title={this.props.title}
+                    class='card-img-top'
+                    style={{
+                        objectFit: 'contain',
+                        height: '250px',
+                        width: '100%',
+                    }}
+                />
+
+                <Card.Title
+                    class='card-title text-center'
+                    style={{
+                        fontWeight: 'bold',
+                        marginTop: '10px',
+                    }}>
+                    {this.props.title}
+                </Card.Title>
+
                 <Card.Body>
-                    <Card.Text class='text-center'>{this.props.description}</Card.Text>
+                    <Card.Text
+                        class='text-center'>
+                        {this.props.description}
+                    </Card.Text>
                 </Card.Body>
 
             </Card>
