@@ -18,20 +18,17 @@ class App extends Component {
   }
 
   handleModalOpen = (beast) => {
-    // alert('hi');
     this.setState({ 
       showModal: true,
-      selectedBeast: {},
-      
+      selectedBeast: beast,  
     })
   }
 
   handleModalClose = () => {
     this.setState({ 
-          showModal: false,
+        showModal: false,
         selectedBeast: {},
-      
-      })
+      });
   }
 
 
@@ -39,8 +36,22 @@ class App extends Component {
     return (
       <>
         <Header />
-        <Main imageUrls={imageUrls} onImageClick={this.handleModalOpen} />
-        <SelectedBeast show={this.state.showModal} onClose={this.handleModalClose} selectedBeast={this.state.selectedBeast} />
+        <Main 
+          imageUrls={imageUrls} 
+          onImageClick={(beast) => this.handleModalOpen({
+            title: beast.title,
+            image_url: beast.image_url,
+            description: beast.description,
+          })
+          }
+        />
+        <SelectedBeast 
+          show={this.state.showModal} 
+          onClose={this.handleModalClose} 
+          title={this.state.selectedBeast.title}
+          image_url={this.state.selectedBeast.image_url}
+          description={this.state.selectedBeast.description}
+        />
         <Footer />
       </>
     );
