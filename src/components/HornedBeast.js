@@ -21,18 +21,28 @@ class HornedBeast extends Component {
     render() {
 
         return (
-            <Card onClick={this.handleClick}>
+            <Card border='info' onClick={this.handleClick} style={{
+                height: '400px',
+                color: 'darkblue',
+            }}>
                 <CardHeader >
                     <HeartFill color='red'></HeartFill>
                     <span style={{ padding: '3px', }}>{this.state.timesClicked}</span>
                 </CardHeader>
                 
-                <Card.Img src={this.props.image_url} alt={this.props.title} title={this.props.title} class='card-img-top'/>
+                <Card.Img src={this.props.image_url} alt={this.props.title} title={this.props.title} class='card-img-top' style={{
+                    objectFit: 'contain',
+                    height: '250px',
+                    width: '100%',
+                }}/>
                
-                <Card.Title class='card-title text-center'>{this.props.title}</Card.Title>
+                <Card.Title class='card-title text-center' style={{
+                    fontWeight: 'bold',
+                    marginTop: '10px',
+                }}>{this.props.title}</Card.Title>
                
                 <Card.Body>
-                    <Card.Text>{this.props.description}</Card.Text>
+                    <Card.Text class='text-center'>{this.props.description}</Card.Text>
                 </Card.Body>
 
             </Card>

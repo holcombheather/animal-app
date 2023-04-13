@@ -17,7 +17,9 @@ class App extends Component {
 
   render() {
     return ( 
-    <Container>
+    <Container style={{
+      background: 'lightblue',
+    }}>
       <Header />        
       <Main imageUrls={imageUrls} />
       <Footer />

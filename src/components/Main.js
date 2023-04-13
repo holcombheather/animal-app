@@ -13,9 +13,17 @@ class Main extends Component {
         const imageUrls = this.props.imageUrls;
 
         return (
-            <Container className='my-5'> 
-                <h2>Click your favorites!</h2>
-                <Row className='g-4'>
+            <Container class='container-fluid'> 
+                <h2 style={{
+                    color: 'coral',
+                    fontStyle: 'oblique',
+                    padding: '40px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                
+                }}>Click your favorites!</h2>
+                <Row className='g-3'>
                 {imageUrls.map((beast, index) => {
                     return (
                         <Col xs={12} md={6} lg={4}>
