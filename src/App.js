@@ -6,6 +6,8 @@ import imageUrls from './data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SelectedBeast from './components/SelectedBeast';
 import './AppStyle.css';
+import { Form } from 'react-bootstrap';
+import FilterForm from './components/FilterForm';
 
 class App extends Component {
 
@@ -14,6 +16,7 @@ class App extends Component {
     this.state = {
       showModal: false,
       selectedBeast: {},
+      // showAllBeasts: true
     };
   }
 
@@ -31,11 +34,17 @@ class App extends Component {
       });
   }
 
+  handleFilter = (event) => {
+    //update state
+    alert(event.target.value);
+  }
+
 
   render() {
     return (
       <>
         <Header />
+        <FilterForm onFilter={this.handleFilter}></FilterForm>
         <Main 
           imageUrls={imageUrls} 
           onImageClick={(beast) => this.handleModalOpen({
