@@ -20,7 +20,11 @@ class HornedBeast extends Component {
 
     handleCardClick = () => {
         this.handleClick();
-        this.props.onImageClick();
+        this.props.onImageClick({
+            title: this.props.title,
+            image_url: this.props.image_url,
+            description: this.props.description,
+        });
     }
 
     render() {
