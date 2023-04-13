@@ -14,7 +14,7 @@ class Main extends Component {
 
         return (
             <Container className='my-5'> 
-                <h2>Main Component</h2>
+                <h2>Click your favorites!</h2>
                 <Row className='g-4'>
                 {imageUrls.map((beast, index) => {
                     return (

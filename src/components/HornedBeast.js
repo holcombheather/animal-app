@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
+import { HeartFill } from 'react-bootstrap-icons';
 
 class HornedBeast extends Component {
     constructor(props) {
@@ -20,11 +21,15 @@ class HornedBeast extends Component {
     render() {
 
         return (
-            <Card class='card' onClick={this.handleClick}>
-                <CardHeader class='card-header'>{this.state.timesClicked}</CardHeader>
+            <Card onClick={this.handleClick}>
+                <CardHeader >
+                    <HeartFill color='red'></HeartFill>
+                    <span style={{ padding: '3px', }}>{this.state.timesClicked}</span>
+                </CardHeader>
+                
                 <Card.Img src={this.props.image_url} alt={this.props.title} title={this.props.title} class='card-img-top'/>
                
-                <Card.Title>{this.props.title}</Card.Title>
+                <Card.Title class='card-title text-center'>{this.props.title}</Card.Title>
                
                 <Card.Body>
                     <Card.Text>{this.props.description}</Card.Text>
@@ -36,30 +41,3 @@ class HornedBeast extends Component {
 }
 
 export default HornedBeast;
-
-
-// **DEMO code for reference**
-// class HornedBeast extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             "status": "Yay"
-//         }
-//     }
-
-//     handleClick = () => {
-//         const newStatus = this.state.status == "Nay" ? "Yay" : "Nay";
-//         this.setState({
-//             status: newStatus
-//         });
-//     }
-
-//     render() {
-//         return (
-//             <div onClick={this.handleClick}>
-//                 <Image src={this.props.image_url} alt="some horned beast" rounded flued />
-//                 <h3>{this.state.status}</h3>
-//             </div>
-//         )
-//     }
-// }
