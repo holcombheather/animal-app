@@ -5,44 +5,38 @@ import { Col } from 'react-bootstrap';
 import HornedBeast from './HornedBeast';
 
 class Main extends Component {
-   
     render() {
-
-        const { imageUrls, onBeastSelect } = this.props;
-
-        const handleClick = () => {
-            console.log('handleClick invoked');
-        };
-        
         return (
-            <Container class='container-fluid'> 
-                <h2 style={{
-                    color: 'coral',
-                    fontStyle: 'oblique',
-                    padding: '40px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                
-                }}>Click your favorites!</h2>
-                <Row className='g-3'>
-                {imageUrls.map((beast, index) => {
-                    return (
-                        <Col xs={12} md={6} lg={4}>
-                        <HornedBeast 
-                            key={beast._id}
-                            title={beast.title}
-                            image_url={beast.image_url}
-                            description={beast.description}
-                            onClick={() => onBeastSelect(beast)}
-                            handleClick={beast.handleClick}
-                        />   
-                        </Col>
-                    )
-                })
-                }      
-                </Row>
-             </Container>   
+            <>
+                <Container class='container-fluid'>
+                    <h2 style={{
+                        color: 'coral',
+                        fontStyle: 'oblique',
+                        padding: '40px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+
+                    }}>Click your favorites!</h2>
+                    <Row className='g-3'>
+                        {this.props.imageUrls.map(beast => {
+                            return (
+                                <Col xs={12} md={6} lg={4}>
+                                    <HornedBeast
+                                        key={beast._id}
+                                        title={beast.title}
+                                        image_url={beast.image_url}
+                                        description={beast.description}
+                                        onImageClick={this.props.onImageClick}
+                                    />
+                                </Col>
+                            )
+                        })
+                        }
+                    </Row>
+                </Container>
+            </>
+
         );
     }
 }
