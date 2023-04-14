@@ -68,7 +68,7 @@ class App extends Component {
         <Header />
         <FilterForm onFilter={this.handleFilter}></FilterForm>
         <Main 
-          imageUrls={imageUrls} 
+          imageUrls={this.state.displayedBeasts} 
           onImageClick={(beast) => this.handleModalOpen({
             title: beast.title,
             image_url: beast.image_url,
