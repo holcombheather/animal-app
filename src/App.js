@@ -8,7 +8,8 @@ import imageUrls from './data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AppStyle.css';
 // import { Form } from 'react-bootstrap';
-
+ 
+const allBeasts = imageUrls;
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
     this.state = {
       showModal: false,
       selectedBeast: {},
-      // showAllBeasts: true
+      displayedBeasts: allBeasts,
     };
   }
 
@@ -36,11 +37,29 @@ class App extends Component {
   }
 
   handleFilter = (event) => {
-    //update state
-    // this.setState({
-    // })
-    alert(event.target.value);
-  }
+    const selection = event.target.value;
+    let filteredBeasts = [];
+
+    if(selection === '1') {
+      filteredBeasts = allBeasts.filter(beast => beast.horns === 1);
+      this.setState({ displayedBeasts: filteredBeasts});
+      console.log(filteredBeasts);
+    } else if (selection === '2') {
+      filteredBeasts = allBeasts.filter((beast) => beast.horns === 2);
+      this.setState({ displayedBeasts: filteredBeasts});
+      console.log(filteredBeasts);
+    } else if (selection === '3') {
+      filteredBeasts = allBeasts.filter((beast) => beast.horns === 3);
+      this.setState({ displayedBeasts: filteredBeasts});
+      console.log(filteredBeasts);
+    }  else if (selection === '100') {
+      filteredBeasts = allBeasts.filter((beast) => beast.horns === 100);
+      this.setState({ displayedBeasts: filteredBeasts});
+      console.log(filteredBeasts);
+    } else {
+      this.setState({ displayedBeasts: allBeasts});
+    }
+  };
 
 
   render() {
